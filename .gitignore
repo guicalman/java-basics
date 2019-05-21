@@ -9,6 +9,7 @@
 # Ignore compiler output
 target/
 out/
+lib/
 
 # Ignore Gradle build output
 build/
