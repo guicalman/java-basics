@@ -12,8 +12,23 @@ public class MainAnagram {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Insert the word to find its anagrams: ");
         String input = scanner.nextLine();
-        String[] foundAnagrams = anagramDelegate.getAnagrams(input, words);
+
+        System.out.println("Results using ordering chars");
+        long startTime =  System.currentTimeMillis();
+        String[] foundAnagrams = anagramDelegate.getAnagramsByOrderingChars(input, words);
         System.out.println("Anagrams found for word " + input);
         System.out.println(Arrays.toString(foundAnagrams));
+        long endTime = System.currentTimeMillis();
+        System.out.println("Algorithm execution time " + (endTime-startTime) + " milliseconds");
+
+        System.out.println("----------------------------------------------------------------------");
+
+        System.out.println("Results using ordering chars");
+        startTime =  System.currentTimeMillis();
+        foundAnagrams = anagramDelegate.getAnagramsByLetterCounts(input, words);
+        System.out.println("Anagrams found for word " + input);
+        System.out.println(Arrays.toString(foundAnagrams));
+        endTime = System.currentTimeMillis();
+        System.out.println("Algorithm execution time " + (endTime-startTime) + " milliseconds");
     }
 }
